@@ -43,7 +43,7 @@ class Solution {
         _ numbers: [Int],
         _ target: Int
     ) -> [[Int]] {
-        var results = [[Int]]()
+        var results: [[Int]] = []
         guard numbers.count >= 4 else {
             return results
         }

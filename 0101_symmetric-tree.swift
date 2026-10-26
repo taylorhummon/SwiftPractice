@@ -43,7 +43,7 @@ class Solution {
         return helper(root.left, root.right)
     }
 
-    func helper(
+    private func helper(
         _ treeA: TreeNode?,
         _ treeB: TreeNode?
     ) -> Bool {

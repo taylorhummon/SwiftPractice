@@ -35,7 +35,6 @@ Similar to idea 1, but avoid using a digits array.
 */
 
 class Solution {
-    // Leetcode named this. I think it would be more swifty to call it reversed().
     func reverse(
         _ x: Int
     ) -> Int {
@@ -66,12 +65,11 @@ class Solution {
         }
     }
 
-    // We only need toDigits to be correct for x >= 0.
-    func toDigits(
+    private func toDigits(
         _ x: Int32
     ) -> [Int32] {
-        guard x > 0 else {
-            // WARN: This is wrong for x < 0.
+        precondition(x >= 0, "toDigits() takes a non-negative integer")
+        if x == 0 {
             return [0]
         }
         var x = x
@@ -83,14 +81,13 @@ class Solution {
         return digits
     }
 
-    func fromDigits(
+    private func fromDigits(
         _ digits: [Int32]
     ) -> Int32? {
         let topOverTen = Int32.max / 10
         var digits = digits
         var result = Int32(0)
         while !digits.isEmpty {
-            // We've ensured digits is not empty, so we can pop a digit.
             let digit = digits.popLast()!
 
             // Check if multiplying result by ten would overflow
@@ -112,10 +109,11 @@ class Solution {
         _ x: Int32
     ) -> Int32 {
         if x >= 0 {
-            guard let result = solution2Helper(x) else {
+            if let result = solution2Helper(x) {
+                return result
+            } else {
                 return 0
             }
-            return result
         }
         // Use a special case for Int32.min because abs(Int32.min) = Int32.min + 1
         else if x == -2147483648 {
@@ -123,22 +121,19 @@ class Solution {
             return 0
         }
         else {
-            guard let result = solution2Helper(-x) else {
+            if let result = solution2Helper(-x) {
+                return -result
+            } else {
                 return 0
             }
-            return -result
         }
     }
 
-    // solution2Helper only needs to work for x >= 0
-    func solution2Helper(
+    private func solution2Helper(
         _ x: Int32
     ) -> Int32? {
+        precondition(x >= 0, "solution2Helper() takes a non-negative integer")
         let topOverTen = Int32.max / 10
-        guard x > 0 else {
-            // WARN: This is wrong for x < 0.
-            return 0
-        }
         var x = x
         var result = Int32(0)
         while x > 0 {

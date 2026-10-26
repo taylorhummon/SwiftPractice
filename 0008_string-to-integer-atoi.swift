@@ -22,7 +22,7 @@ Constraints:
 */
 
 class Solution {
-    let digitByString: [Character: Int32] = [
+    private let digitByString: [Character: Int32] = [
         "0": 0,
         "1": 1,
         "2": 2,
@@ -97,7 +97,7 @@ class Solution {
         }
     }
 
-    func fromDigits(
+    private func fromDigits(
         _ digits: [Int32]
     ) -> Int32? {
         var result = Int32(0)

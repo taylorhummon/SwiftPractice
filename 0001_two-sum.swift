@@ -44,15 +44,22 @@ class Solution {
         _ numbers: [Int],
         _ target: Int
     ) -> [Int?] {
-        let (number1, number2) = solution2(numbers, target)
-        // Leetcode wants its answer as an array, not a tuple
-        return [number1, number2]
+        do {
+            let (number1, number2) = try solution2(numbers, target)
+            // Leetcode wants its answer as an array, not a tuple
+            return [number1, number2]
+        } catch is NoSolutionFound {
+            return [-1, -1]
+        } catch {
+            print("Unexpected error occurred: \(error)")
+            return [-1, -1]
+        }
     }
 
     func solution1(
         _ numbers: [Int],
         _ target: Int
-    ) -> (Int, Int) {
+    ) throws -> (Int, Int) {
         var seen = Set<Int>()
         for number in numbers {
             // We'll check if we've seen an integer, complement, satisfying:
@@ -67,13 +74,13 @@ class Solution {
             }
             seen.insert(number)
         }
-        return (-1, -1)
+        throw NoSolutionFound()
     }
 
     func solution2(
         _ numbers: [Int],
         _ target: Int
-    ) -> (Int, Int) {
+    ) throws -> (Int, Int) {
         var indexByNumber = [Int: Int]()
         for (i, number) in numbers.enumerated() {
             if let j = indexByNumber[target - number] {
@@ -81,6 +88,9 @@ class Solution {
             }
             indexByNumber[number] = i
         }
-        return (-1, -1)
+        throw NoSolutionFound()
     }
+}
+
+struct NoSolutionFound: Error {
 }

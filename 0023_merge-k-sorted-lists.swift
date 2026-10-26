@@ -110,7 +110,7 @@ class Solution {
         return dummy.next
     }
 
-    func insertListIntoSortedLists(
+    private func insertListIntoSortedLists(
         list: ListNode,
         sortedLists: inout [ListNode]
     ) -> Void {

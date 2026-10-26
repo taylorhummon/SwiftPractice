@@ -77,7 +77,7 @@ class Solution {
         return largestKnownArea
     }
 
-    func area(
+    private func area(
         _ heights: [Int],
         _ left: Int,
         _ right: Int

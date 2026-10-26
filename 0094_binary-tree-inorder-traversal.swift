@@ -68,8 +68,8 @@ class Solution {
     func solution2(
         _ root: TreeNode?
     ) -> [Int] {
-        var result = [Int]()
-        var stack = [TreeNode]()
+        var result: [Int] = []
+        var stack: [TreeNode] = []
         var node = root
         while true {
             addLeftsToStack(&stack, node)
@@ -80,7 +80,7 @@ class Solution {
         }
     }
 
-    func addLeftsToStack(
+    private func addLeftsToStack(
         _ stack: inout [TreeNode],
         _ tree: TreeNode?
     ) -> Void {
@@ -91,7 +91,7 @@ class Solution {
         }
     }
 
-    func backtrack(
+    private func backtrack(
         _ stack: inout [TreeNode],
         _ result: inout [Int]
     ) -> TreeNode? {

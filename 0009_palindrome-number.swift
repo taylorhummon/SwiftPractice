@@ -50,7 +50,7 @@ class Solution {
         guard x >= 0 else {
             return false
         }
-        let digits = digits(x)
+        let digits = toDigits(x)
 
         // We can use integer division here because we don't need to check the middle
         // character in an odd length palindrome.
@@ -62,12 +62,11 @@ class Solution {
         return true
     }
 
-    // This function is only required to give appropriate results for non-negative integers.
-    func digits(
+    private func toDigits(
         _ x: Int
     ) -> [Int] {
-        guard x > 0 else {
-            // WARN: This is wrong for negative x
+        precondition(x >= 0, "toDigits() takes a non-negative integer")
+        if x == 0 {
             return [0]
         }
         var x = x

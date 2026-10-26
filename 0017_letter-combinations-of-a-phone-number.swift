@@ -51,17 +51,19 @@ class Solution {
     func letterCombinations(
         _ digits: String
     ) -> [String] {
-        let digitsAsIntegerArray: [Int] = Array(digits).compactMap { character in Int(String(character)) }
-        return solutionC(digitsAsIntegerArray)
+        let digitsAsIntegerArray: [Int] = Array(digits).compactMap {
+            character in Int(String(character))
+        }
+        return solution3(digitsAsIntegerArray)
     }
 
-    func solutionA(
+    func solution1(
         _ digits: [Int]
     ) -> [String] {
         return helper(digits.reversed())
     }
 
-    func helper(
+    private func helper(
         _ digits: [Int]
     ) -> [String] {
         var digits = digits
@@ -72,13 +74,13 @@ class Solution {
         }
     }
 
-    func solutionB(
+    func solution2(
         _ digits: [Int]
     ) -> [String] {
         return digits.map { digit in characterLists[digit] }.reduce([""], { a, b in product(a, b) })
     }
 
-    func product(
+    private func product(
         _ arrayA: [String],
         _ arrayB: [String]
     ) -> [String] {
@@ -91,7 +93,7 @@ class Solution {
         return results
     }
 
-    func solutionC(
+    func solution3(
         _ digits: [Int]
     ) -> [String] {
         guard !digits.isEmpty else {

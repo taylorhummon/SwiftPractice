@@ -82,6 +82,23 @@ class Solution {
         _ string: String,
         _ rowsCount: Int
     ) -> String {
+        do {
+            return try solution(string, rowsCount)
+        } catch is NoSolutionFound {
+            return ""
+        } catch {
+            print("Unexpected error: \(error)")
+            return ""
+        }
+    }
+
+    func solution(
+        _ string: String,
+        _ rowsCount: Int
+    ) throws -> String {
+        guard rowsCount >= 1 else {
+            throw NoSolutionFound()
+        }
         if rowsCount == 1 {
             return string
         }
@@ -121,4 +138,7 @@ class Solution {
 
         return result.joined()
     }
+}
+
+struct NoSolutionFound: Error {
 }

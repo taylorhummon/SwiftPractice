@@ -45,15 +45,15 @@ class Solution {
     ) -> String {
         let oddPalindrome = getLongestOddLengthPalindrome(string)
         let evenPalindrome = getLongestEvenLengthPalindrome(string)
-        if oddPalindrome.count > evenPalindrome.count {
-            return oddPalindrome
+        return if oddPalindrome.count > evenPalindrome.count {
+            oddPalindrome
         }
         else {
-            return evenPalindrome
+            evenPalindrome
         }
     }
 
-    func getLongestOddLengthPalindrome(
+    private func getLongestOddLengthPalindrome(
         _ string: String
     ) -> String {
         let characters = Array<Character>(string)
@@ -95,7 +95,7 @@ class Solution {
         return longestPalindrome.map { String($0) }.joined()
     }
 
-    func getLongestEvenLengthPalindrome(
+    private func getLongestEvenLengthPalindrome(
         _ string: String
     ) -> String {
         let characters = Array<Character>(string)

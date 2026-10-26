@@ -50,7 +50,7 @@ Constraints:
 */
 
 class Solution {
-    let valueByCharacter: [Character: Int] = [
+    private let valueByCharacter: [Character: Int] = [
         "I": 1,
         "V": 5,
         "X": 10,
@@ -61,17 +61,30 @@ class Solution {
     ]
 
     func romanToInt(
-        _ s: String
+        _ string: String
     ) -> Int {
-        let characters = Array(s)
+        do {
+            return try solution(string)
+        } catch is NoSolutionFound {
+            return -1
+        } catch {
+            print("Unexpected error \(error)")
+            return -1
+        }
+    }
+
+    func solution(
+        _ string: String
+    ) throws -> Int {
+        let characters = Array(string)
         var result = 0
         for i in 0 ..< characters.count {
             guard let currentValue = valueByCharacter[characters[i]] else {
-                return 0
+                throw NoSolutionFound()
             }
             if i + 1 < characters.count {
                 guard let nextValue = valueByCharacter[characters[i + 1]] else {
-                    return 0
+                    throw NoSolutionFound()
                 }
                 if currentValue < nextValue {
                     result -= currentValue
@@ -82,4 +95,7 @@ class Solution {
         }
         return result
     }
+}
+
+struct NoSolutionFound: Error {
 }

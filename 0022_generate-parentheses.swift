@@ -34,7 +34,7 @@ class Solution {
         return generateWith(n, n)
     }
 
-    func generateWith(
+    private func generateWith(
         _ remainingOpen: Int,
         _ remainingClosed: Int
     ) -> [String] {
@@ -59,14 +59,14 @@ class Solution {
         }
     }
 
-    func generateAppendingClosedParenthesis(
+    private func generateAppendingClosedParenthesis(
         _ remainingOpen: Int,
         _ remainingClosed: Int
     ) -> [String] {
         return generateWith(remainingOpen, remainingClosed - 1).map { $0 + ")" }
     }
 
-    func generateAppendingOpenParenthesis(
+    private func generateAppendingOpenParenthesis(
         _ remainingOpen: Int,
         _ remainingClosed: Int
     ) -> [String] {

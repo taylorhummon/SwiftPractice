@@ -31,6 +31,13 @@ class Solution {
         _ numbers: [Int],
         _ target: Int
     ) -> Int {
+        return solution(numbers, target)
+    }
+
+    func solution(
+        _ numbers: [Int],
+        _ target: Int
+    ) -> Int {
         var left = 0
         var right = numbers.count - 1
         guard target > numbers[left] else {
