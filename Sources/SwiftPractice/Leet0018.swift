@@ -38,7 +38,7 @@ Then, we'll:
     move d from top to the left
 */
 
-struct Leet0018Idea {
+struct Leet0018Idea1 {
     func fourSum(
         _ numbers: [Int],
         _ target: Int

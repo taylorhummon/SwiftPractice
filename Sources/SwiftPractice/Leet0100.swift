@@ -23,7 +23,7 @@ Constraints:
     -10**4 <= Node.val <= 10**4
 */
 
-struct Leet0100Idea {
+struct Leet0100Idea1 {
     func isSameTree(
         _ p: TreeNode?,
         _ q: TreeNode?

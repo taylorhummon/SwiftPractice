@@ -28,7 +28,7 @@ Find the smallest and largest strings according to lexicographic ordering.
 Step through the two strings until you find a character that's different or reach the end of one of the strings.
 */
 
-struct Leet0014Idea {
+struct Leet0014Idea1 {
     func longestCommonPrefix(
         _ strings: [String]
     ) -> String {

@@ -26,7 +26,7 @@ In other words:
     remainingOpen >= remainingClosed
 */
 
-struct Leet0022Idea {
+struct Leet0022Idea1 {
     func generateParentheses(
         _ n: Int
     ) -> [String] {

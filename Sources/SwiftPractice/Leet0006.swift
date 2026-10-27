@@ -77,7 +77,7 @@ These are +- 1 modulo 6.
 and +- 2 modulo 6.
 */
 
-struct Leet0006Idea {
+struct Leet0006Idea1 {
     func zigZag(
         _ string: String,
         _ rowsCount: Int

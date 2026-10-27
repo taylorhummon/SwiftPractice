@@ -45,7 +45,7 @@ Decrease m or n as appropriate.
 Repeat, regarding numbers1 as defined through the (new) first m integers.
 */
 
-struct Leet0088Idea {
+struct Leet0088Idea1 {
     func merge(
         _ numbers1: inout [Int],
         _ m: Int,

@@ -34,7 +34,7 @@ Keep two indices for numbers, one where we write to and one (ahead) where we rea
 Skip writing any instances of value.
 */
 
-struct Leet0027Idea {
+struct Leet0027Idea1 {
     func removeElement(
         _ numbers: inout [Int],
         _ value: Int

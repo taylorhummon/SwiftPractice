@@ -49,7 +49,7 @@ Constraints:
     It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 */
 
-struct Leet0013Idea {
+struct Leet0013Idea1 {
     func romanToInt(
         _ string: String
     ) throws -> Int {

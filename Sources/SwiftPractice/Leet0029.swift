@@ -36,7 +36,7 @@ Idea
 Use bit shifting to avoid having to do repeated addition.
 */
 
-struct Leet0029Idea {
+struct Leet0029Idea1 {
     func divide(
         _ numerator: Int32,
         _ denominator: Int32

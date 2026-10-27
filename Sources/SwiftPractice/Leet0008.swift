@@ -23,7 +23,7 @@ Constraints:
 
 import Foundation
 
-struct Leet0008Idea {
+struct Leet0008Idea1 {
     func atoi(
         _ string: String
     ) -> Int32 {

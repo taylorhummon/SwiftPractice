@@ -36,7 +36,7 @@ Constraints:
     1 <= num <= 3999
 */
 
-struct Leet0012Idea {
+struct Leet0012Idea1 {
     func intToRoman(
         _ number: Int
     ) -> String {

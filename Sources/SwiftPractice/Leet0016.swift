@@ -27,7 +27,7 @@ Constraints:
     -10**4 <= target <= 10**4
 */
 
-struct Leet0016Idea {
+struct Leet0016Idea1 {
     func threeSumClosest(
         _ numbers: [Int],
         _ target: Int

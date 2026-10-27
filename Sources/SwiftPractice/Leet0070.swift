@@ -31,7 +31,7 @@ we'll just add the n = 4 and n = 3 values. This is just Fibonacci! Let's generat
 solutions from the bottom up.
 */
 
-struct Leet0070Idea {
+struct Leet0070Idea1 {
     func climbingStairsCount(
         _ n: Int
     ) -> Int {

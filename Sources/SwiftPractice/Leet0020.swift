@@ -36,7 +36,7 @@ Constraints:
     s consists of parentheses only '()[]{}'.
 */
 
-struct Leet0020Idea {
+struct Leet0020Idea1 {
     func isValid(
         _ string: String
     ) -> Bool {

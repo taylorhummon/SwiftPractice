@@ -44,7 +44,7 @@ Fix each possible i.
 Use a left and right pointer to search for combinations.
 */
 
-struct Leet0015Idea {
+struct Leet0015Idea1 {
     func threeSum(
         _ numbers: [Int]
     ) -> [[Int]] {

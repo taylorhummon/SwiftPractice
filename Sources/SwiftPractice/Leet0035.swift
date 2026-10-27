@@ -25,7 +25,7 @@ Constraints:
     -10**4 <= target <= 10**4
 */
 
-struct Leet0035Idea {
+struct Leet0035Idea1 {
     func insertionIndex(
         _ numbers: [Int],
         _ target: Int

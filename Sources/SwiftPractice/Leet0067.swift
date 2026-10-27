@@ -17,7 +17,7 @@ Constraints:
     Each string does not contain leading zeros except for the zero itself.
 */
 
-struct Leet0067Idea {
+struct Leet0067Idea1 {
     func addBinary(
         _ stringA: String,
         _ stringB: String

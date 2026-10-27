@@ -39,7 +39,7 @@ Idea
 Reverse the digits so we can work left-to-right.
 */
 
-struct Leet0066Idea {
+struct Leet0066Idea1 {
     func plusOne(
         _ digits: [Int]
     ) -> [Int] {

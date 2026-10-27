@@ -17,7 +17,7 @@ Constraints:
     -100 <= Node.val <= 100
 */
 
-struct Leet0101Idea {
+struct Leet0101Idea1 {
     func isSymmetric(
         _ root: TreeNode?
     ) -> Bool {

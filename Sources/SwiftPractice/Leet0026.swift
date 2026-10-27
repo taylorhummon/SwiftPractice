@@ -36,7 +36,7 @@ Idea
 Use two indices, one where we'll write to and one (ahead) where we'll read from.
 */
 
-struct Leet0026Idea {
+struct Leet0026Idea1 {
     func removeDuplicates(
         _ numbers: inout [Int]
     ) -> Int {

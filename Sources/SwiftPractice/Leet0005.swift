@@ -39,7 +39,7 @@ There are n = string.count possible middle positions for palindromes of odd leng
 There are n - 1 possible middle positions for palindromes of even length.
 */
 
-struct Leet0005Idea {
+struct Leet0005Idea1 {
     func longestPalindrome(
         _ string: String
     ) -> String {

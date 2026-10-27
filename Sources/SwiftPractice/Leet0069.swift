@@ -27,7 +27,7 @@ Idea
 Bisect search.
 */
 
-struct Leet0069Idea {
+struct Leet0069Idea1 {
     func sqrt(
         _ n: Int
     ) -> Int {

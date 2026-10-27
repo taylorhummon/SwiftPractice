@@ -42,7 +42,7 @@ This will work as long as left.next exists as a ListNode. It's OK if left.next.n
 So this only makes sense for n >= 1.
 */
 
-struct Leet0019Idea {
+struct Leet0019Idea1 {
     func removeNthFromEnd(
         _ head: ListNode?,
         _ n: Int
