@@ -63,7 +63,7 @@ class Solution {
         }
 
         // Read digits
-        var digits = [Int32]()
+        var digits: [Int32] = []
         for character in characters {
             guard let digit = digitByString[character] else {
                 break
@@ -97,13 +97,15 @@ class Solution {
         }
     }
 
+    private let topOverTen = Int32.max / 10
+
     private func fromDigits(
         _ digits: [Int32]
     ) -> Int32? {
         var result = Int32(0)
         for digit in digits {
             // Check if multiplying result by ten would overflow
-            guard result <= Int32.max / 10 else {
+            guard result <= topOverTen else {
                 return nil
             }
             result *= 10

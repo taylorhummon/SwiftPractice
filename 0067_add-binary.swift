@@ -22,7 +22,7 @@ class Solution {
         _ stringA: String,
         _ stringB: String
     ) -> String {
-        var resultCharacters = [String]()
+        var resultCharacters: [Character] = []
         var hasCarry = false
         let charactersA = Array(stringA.reversed())
         let charactersB = Array(stringB.reversed())
@@ -65,6 +65,6 @@ class Solution {
         if hasCarry {
             resultCharacters.append("1")
         }
-        return resultCharacters.reversed().joined()
+        return resultCharacters.reversed().map { String($0) }.joined()
     }
 }

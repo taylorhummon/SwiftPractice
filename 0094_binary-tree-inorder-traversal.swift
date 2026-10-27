@@ -71,13 +71,11 @@ class Solution {
         var result: [Int] = []
         var stack: [TreeNode] = []
         var node = root
-        while true {
+        while node != nil {
             addLeftsToStack(&stack, node)
             node = backtrack(&stack, &result)
-            if node == nil {
-                return result
-            }
         }
+        return result
     }
 
     private func addLeftsToStack(
@@ -95,19 +93,13 @@ class Solution {
         _ stack: inout [TreeNode],
         _ result: inout [Int]
     ) -> TreeNode? {
-        while true {
-            if stack.isEmpty {
-                return nil
-            }
-            if let node = stack.popLast() {
-                result.append(node.val)
-                if node.right != nil {
-                    return node.right
-                }
-            }
-            else {
-                return nil
+        // Pop nodes off of the stack until one has a right child or we run out.
+        while let node = stack.popLast() {
+            result.append(node.val)
+            if let rightChild = node.right {
+                return rightChild
             }
         }
+        return nil
     }
 }

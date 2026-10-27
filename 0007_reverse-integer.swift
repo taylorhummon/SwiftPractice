@@ -51,13 +51,14 @@ class Solution {
             }
             return result
         }
-        // Use a special case for Int32.min because abs(Int32.min) = Int32.min + 1
-        else if x == -2147483648 {
-            // -8463847412 is out of range
+        // Use a special case for x = Int32.min because abs(Int32.min) overflows
+        else if x == Int32.min {
+            // -2147483648 reversed is -8463847412, which is out of range
             return 0
         }
+        // x is negative and abs(x) does not overflow
         else {
-            let digits = Array(toDigits(-x).reversed())
+            let digits = Array(toDigits(abs(x)).reversed())
             guard let result = fromDigits(digits) else {
                 return 0
             }
@@ -81,10 +82,11 @@ class Solution {
         return digits
     }
 
+    private let topOverTen = Int32.max / 10
+
     private func fromDigits(
         _ digits: [Int32]
     ) -> Int32? {
-        let topOverTen = Int32.max / 10
         var digits = digits
         var result = Int32(0)
         while !digits.isEmpty {
@@ -115,11 +117,12 @@ class Solution {
                 return 0
             }
         }
-        // Use a special case for Int32.min because abs(Int32.min) = Int32.min + 1
+        // Use a special case for Int32.min because abs(Int32.min) overflows
         else if x == -2147483648 {
             // -8463847412 is out of range
             return 0
         }
+        // x is negative and abs(x) does not overflow
         else {
             if let result = solution2Helper(-x) {
                 return -result
@@ -133,7 +136,6 @@ class Solution {
         _ x: Int32
     ) -> Int32? {
         precondition(x >= 0, "solution2Helper() takes a non-negative integer")
-        let topOverTen = Int32.max / 10
         var x = x
         var result = Int32(0)
         while x > 0 {

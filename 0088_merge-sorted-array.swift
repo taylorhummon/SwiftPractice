@@ -61,18 +61,26 @@ class Solution {
         while i >= 0 || j >= 0 {
             // where we're writing to in numbers1
             let k = i + j + 1
+
+            // if we've run out of i values
             if i < 0 {
                 numbers1[k] = numbers2[j]
                 j -= 1
             }
+
+            // if we've run out of j values
             else if j < 0 {
                 numbers1[k] = numbers1[i]
                 i -= 1
             }
+
+            // if we should grab a number from numbers1
             else if numbers1[i] >= numbers2[j] {
                 numbers1[k] = numbers1[i]
                 i -= 1
             }
+
+            // if we should grab a number from numbers2
             else {
                 numbers1[k] = numbers2[j]
                 j -= 1

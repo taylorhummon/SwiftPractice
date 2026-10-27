@@ -59,9 +59,7 @@ class Solution {
                 digits.append(1)
                 break
             }
-            else {
-                digits[i + 1] += 1
-            }
+            digits[i + 1] += 1
         }
         digits.reverse()
         return digits

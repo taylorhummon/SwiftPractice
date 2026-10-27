@@ -55,7 +55,7 @@ class Solution {
         if numerator == Int32.min {
             if denominator == -1 {
                 // The correct math answer here is Int32.max + 1, but that's an overflow.
-                // The problem asks us to set the answer to Int.max in this case.
+                // The problem asks us to return Int.max in this case.
                 return Int32.max
             }
             if denominator == 1 {

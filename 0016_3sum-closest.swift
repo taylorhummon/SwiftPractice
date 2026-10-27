@@ -32,10 +32,10 @@ class Solution {
         _ numbers: [Int],
         _ target: Int
     ) -> Int {
-        let numbers = numbers.sorted()
         guard numbers.count >= 3 else {
             return -1
         }
+        let numbers = numbers.sorted()
         let top = numbers.count - 1
         var closest = numbers[0] + numbers[1] + numbers[2]
         var smallestDistance = abs(target - closest)

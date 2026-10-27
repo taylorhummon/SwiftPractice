@@ -86,6 +86,7 @@ class Solution {
                 guard let nextValue = valueByCharacter[characters[i + 1]] else {
                     throw NoSolutionFound()
                 }
+                // Found letters with smaller before larger, e.g. IV or XL.
                 if currentValue < nextValue {
                     result -= currentValue
                     continue

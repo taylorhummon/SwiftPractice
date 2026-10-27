@@ -36,7 +36,7 @@ class Solution {
         _ haystack: String,
         _ needle: String
     ) -> Int {
-        return solution1(haystack, needle)
+        return solution2(haystack, needle)
     }
 
     func solution1(
@@ -46,18 +46,18 @@ class Solution {
         let haystackArray = Array(haystack)
         let needleArray = Array(needle)
         let top = max(0, haystackArray.count - needleArray.count + 1)
-        for i in 0 ..< top {
-            var foundSubstring = true   // Assume true until proven false
+        outerLoop: for i in 0 ..< top {
             for j in 0 ..< needleArray.count {
+                // If we determine the needle doesn't begin at haystackArray[i],
+                // start the next iteration of the outer loop.
                 if needleArray[j] != haystackArray[i + j] {
-                    foundSubstring = false
-                    break
+                    continue outerLoop
                 }
             }
-            if foundSubstring {
-                return i
-            }
+            // We found the needle at index i in the haystack!
+            return i
         }
+        // We didn't find the needle in the haystack.
         return -1
     }
 
@@ -69,23 +69,25 @@ class Solution {
             return -1
         }
         var i = haystack.startIndex
-        while i < haystack.endIndex {
-            var foundSubstring = true   // Assume true until proven false
-            var j = needle.startIndex
-            var k = i
+        var j: String.Index
+        var k: String.Index
+        outerLoop: while i < haystack.endIndex {
+            j = needle.startIndex
+            k = i
             while j < needle.endIndex {
+                // If we determine the needle doesn't begin at haystackArray[i],
+                // start the next iteration of the outer loop.
                 if k >= haystack.endIndex || needle[j] != haystack[k] {
-                    foundSubstring = false
-                    break
+                    haystack.formIndex(after: &i)
+                    continue outerLoop
                 }
                 needle.formIndex(after: &j)
                 haystack.formIndex(after: &k)
             }
-            if foundSubstring {
-                return haystack.distance(from: haystack.startIndex, to: i)
-            }
-            haystack.formIndex(after: &i)
+            // We found the needle at index i in the haystack!
+            return haystack.distance(from: haystack.startIndex, to: i)
         }
+        // We didn't find the needle in the haystack.
         return -1
     }
 }

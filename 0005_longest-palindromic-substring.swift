@@ -45,25 +45,19 @@ class Solution {
     ) -> String {
         let oddPalindrome = getLongestOddLengthPalindrome(string)
         let evenPalindrome = getLongestEvenLengthPalindrome(string)
-        return if oddPalindrome.count > evenPalindrome.count {
-            oddPalindrome
-        }
-        else {
-            evenPalindrome
-        }
+        return oddPalindrome.count > evenPalindrome.count ? oddPalindrome : evenPalindrome
     }
 
     private func getLongestOddLengthPalindrome(
         _ string: String
     ) -> String {
         let characters = Array<Character>(string)
-
-        // Every character is a palindrome of length one
-        var palindromeIndices = Array(0 ..< characters.count)
-        guard !palindromeIndices.isEmpty else {
+        guard !characters.isEmpty else {
             return ""
         }
 
+        // Every character is a palindrome of length one
+        var palindromeIndices = Array(0 ..< characters.count)
         var longestPalindrome = [Character]()
         var indexDiff = 0
         while !palindromeIndices.isEmpty {
@@ -99,15 +93,14 @@ class Solution {
         _ string: String
     ) -> String {
         let characters = Array<Character>(string)
+        guard !characters.isEmpty else {
+            return ""
+        }
 
         // A palindrome of length two consists of a doubled character, e.g. "ff"
         var palindromeIndices = Array(
             (1 ..< characters.count).filter { characters[$0 - 1] == characters[$0] }
         )
-        guard !palindromeIndices.isEmpty else {
-            return ""
-        }
-
         var longestPalindrome = [Character]()
         var indexDiff = 1
         while !palindromeIndices.isEmpty {

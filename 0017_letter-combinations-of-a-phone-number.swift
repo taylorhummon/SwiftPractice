@@ -68,7 +68,8 @@ class Solution {
     ) -> [String] {
         var digits = digits
         if let digit = digits.popLast() {
-            return product(characterLists[digit], helper(digits))
+            let rest = helper(digits)
+            return product(characterLists[digit], rest)
         } else {
             return [""]
         }
@@ -77,14 +78,14 @@ class Solution {
     func solution2(
         _ digits: [Int]
     ) -> [String] {
-        return digits.map { digit in characterLists[digit] }.reduce([""], { a, b in product(a, b) })
+        return digits.map { digit in characterLists[digit] }.reduce([""], product)
     }
 
     private func product(
         _ arrayA: [String],
         _ arrayB: [String]
     ) -> [String] {
-        var results = [String]()
+        var results: [String] = []
         for a in arrayA {
             for b in arrayB {
                 results.append(a + b)
@@ -100,7 +101,7 @@ class Solution {
             return []
         }
         let wordIterator = WordIterator(digits: digits)
-        var words = [String]()
+        var words: [String] = []
         while let word = wordIterator.next() {
             words.append(word)
         }

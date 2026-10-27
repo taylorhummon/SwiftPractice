@@ -82,8 +82,8 @@ class Solution {
             return nil
         }
 
-        let dummy = ListNode()
-        var latest = dummy
+        let resultHolder = ListNode()
+        var latest = resultHolder
 
         // Remove nil lists
         var lists: [ListNode] = lists.compactMap { $0 }
@@ -107,7 +107,7 @@ class Solution {
                 insertListIntoSortedLists(list: shorterList, sortedLists: &lists)
             }
         }
-        return dummy.next
+        return resultHolder.next
     }
 
     private func insertListIntoSortedLists(

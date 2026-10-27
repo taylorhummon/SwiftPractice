@@ -43,7 +43,7 @@ class Solution {
         var largestKnownArea = 0
         for right in 0 ..< heights.count {
             for left in 0 ..< right {
-                let area = (right - left) * min(heights[left], heights[right])
+                let area = area(heights, left, right)
                 largestKnownArea = max(largestKnownArea, area)
             }
         }
@@ -61,6 +61,7 @@ class Solution {
             let leftHeight = heights[left]
             let rightHeight = heights[right]
             if leftHeight <= rightHeight {
+                // Move left forward until we find a larger height or hit right
                 while left < right && heights[left] <= leftHeight {
                     left += 1
                 }
@@ -68,6 +69,7 @@ class Solution {
             // We want both this "if" statement and the previous "if" statement to execute
             // when leftHeight == rightHeight
             if leftHeight >= rightHeight {
+                // Move right backward until we find a larger height or hit left
                 while left < right && heights[right] <= rightHeight {
                     right -= 1
                 }

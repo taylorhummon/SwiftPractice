@@ -61,9 +61,9 @@ class Solution {
         guard n >= 1 else {
             return nil
         }
-        let beforeHead = ListNode(0, head)
-        var left: ListNode? = beforeHead
-        var right: ListNode? = beforeHead
+        let resultHolder = ListNode(0, head)
+        var left: ListNode? = resultHolder
+        var right: ListNode? = resultHolder
 
         // Advance right n times
         // Since we ensured n >= 1, this will make right at least one ahead of left.
@@ -87,6 +87,6 @@ class Solution {
         // Left and left.next cannot be nil because right sits at least one ahead of left
         left!.next = left!.next!.next
 
-        return beforeHead.next
+        return resultHolder.next
     }
 }

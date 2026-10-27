@@ -55,11 +55,14 @@ class Solution {
         guard let next = head.next else {
             return head
         }
+        let rest = solution1(next)
+        // Just skip over head if head.val is the same as next.val
         if next.val == head.val {
-            return solution1(next)
+            return rest
         }
+        // Include head if its value differs from next.val
         else {
-            return ListNode(head.val, solution1(next))
+            return ListNode(head.val, rest)
         }
     }
 
@@ -71,29 +74,38 @@ class Solution {
         }
         let value = head.val
         var node: ListNode? = head.next
+        // Skip over any nodes with node.val equal to head.val
         while node != nil && node!.val == value {
+            // This is safe because we just ensured readNode is not nil
             node = node!.next
         }
-        return ListNode(value, solution2(node))
+        let rest = solution2(node)
+        return ListNode(value, rest)
     }
 
     func solution3(
         _ head: ListNode?
     ) -> ListNode? {
-        let dummy = ListNode(0, nil)
-        var lastWrittenNode: ListNode = dummy
+        let resultHolder = ListNode(0, nil)
+        var lastWrittenNode: ListNode = resultHolder
         var readNode = head
         while readNode != nil {
             // This is safe because we just ensured readNode is not nil
             let value = readNode!.val
             let newLastNode = ListNode(value, nil)
+
+            // Add newLastNode to the end of the list
             lastWrittenNode.next = newLastNode
+
+            // Update lastWrittenNode to refer to newLastNodeS
             lastWrittenNode = newLastNode
+
+            // Skip over any nodes that have val equal to the value of newLastNode
             while readNode != nil && readNode!.val == value {
                 // This is safe because we just ensured readNode is not nil
                 readNode = readNode!.next
             }
         }
-        return dummy.next
+        return resultHolder.next
     }
 }

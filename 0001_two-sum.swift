@@ -66,8 +66,9 @@ class Solution {
             //   number + compliment = target
             let compliment = target - number
             if seen.contains(compliment) {
+                // We'll use firstIndex and lastIndex so that we get different indices in the case
+                // that number = compliment.
                 return (
-                    // We'll use firstIndex and lastIndex so that we get different indices in the case that number = compliment.
                     numbers.firstIndex(of: number)!,
                     numbers.lastIndex(of: compliment)!
                 )
@@ -83,9 +84,11 @@ class Solution {
     ) throws -> (Int, Int) {
         var indexByNumber = [Int: Int]()
         for (i, number) in numbers.enumerated() {
+            // Have we seen target - number already?
             if let j = indexByNumber[target - number] {
                 return (i, j)
             }
+            // Record that we've seen number at index i
             indexByNumber[number] = i
         }
         throw NoSolutionFound()

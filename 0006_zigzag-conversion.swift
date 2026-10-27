@@ -104,11 +104,11 @@ class Solution {
         }
         let characters = Array(string)
         let n = characters.count
-        var result = [String]()
+        var result: [Character] = []
 
         // Get character contributions from the first row
         for i in stride(from: 0, to: n, by: 2 * (rowsCount - 1)) {
-            result.append(String(characters[i]))
+            result.append(characters[i])
         }
 
         // Get character contributions from the inner rows
@@ -120,12 +120,12 @@ class Solution {
                     if k1 >= n {
                         break
                     }
-                    result.append(String(characters[k1]))
+                    result.append(characters[k1])
                     let k2 = (i + 1) * 2 * (rowsCount - 1) - j
                     if k2 >= n {
                         break
                     }
-                    result.append(String(characters[k2]))
+                    result.append(characters[k2])
                     i += 1
                 }
             }
@@ -133,10 +133,10 @@ class Solution {
 
         // Get character contributions from the last row
         for i in stride(from: rowsCount - 1, to: n, by: 2 * (rowsCount - 1)) {
-            result.append(String(characters[i]))
+            result.append(characters[i])
         }
 
-        return result.joined()
+        return result.map { String($0) }.joined()
     }
 }
 

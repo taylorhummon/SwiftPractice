@@ -33,7 +33,7 @@ Constraints:
 
 /*
 Idea
-Use two indices, on where we'll write to and one (ahead) where we'll read from.
+Use two indices, one where we'll write to and one (ahead) where we'll read from.
 */
 
 class Solution {

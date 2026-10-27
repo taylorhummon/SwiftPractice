@@ -30,7 +30,7 @@ Example 2:
 
 /*
 Idea
-Keep two indices for numbers, one where we write to and one (ahead) wheere we read from.
+Keep two indices for numbers, one where we write to and one (ahead) where we read from.
 Skip writing any instances of value.
 */
 

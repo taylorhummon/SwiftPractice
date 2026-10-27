@@ -97,7 +97,7 @@ class Solution {
             }
 
             // See if we have a new longest length of characters
-            // We need to add one because we're considering charactetrs from left to right, inclusive.
+            // We need to add one because we're considering characters from left to right, inclusive.
             longestLength = max(longestLength, string.distance(from: left, to: right) + 1)
 
             // Store the index of the current character

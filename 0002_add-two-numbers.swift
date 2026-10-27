@@ -74,7 +74,8 @@ class Solution {
         }
 
         // Otherwise, recurse
-        return ListNode(digit, solution1(list1?.next, list2?.next, carried: carry))
+        let rest = solution1(list1?.next, list2?.next, carried: carry)
+        return ListNode(digit, rest)
     }
 
     func solution2(
@@ -90,7 +91,7 @@ class Solution {
 
         // Using this resultHolder helps us DRY the loop.
         // We'll modify resultHolder.next using lastResultNode.
-        let resultHolder = ListNode(-1, nil)
+        let resultHolder = ListNode(0, nil)
         var lastListNodeOfResult = resultHolder
         while list1 != nil || list2 != nil || carry != 0 {
             let digit1 = list1?.val ?? 0

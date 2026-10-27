@@ -26,7 +26,7 @@ Constraints:
 
 /*
 Idea 1
-Generate the digits as an array
+Generate the digits as an array.
 Check that the first digit matches the last, second matches penultimate, ... up to the middle.
 
 Idea 2
@@ -70,7 +70,7 @@ class Solution {
             return [0]
         }
         var x = x
-        var digits = [Int]()
+        var digits: [Int] = []
         while x > 0 {
             digits.append(x % 10)
             x /= 10
@@ -81,7 +81,7 @@ class Solution {
     func solution2(
         _ x: Int
     ) -> Bool {
-        guard x < 0 else {
+        guard x >= 0 else {
             return false
         }
         var n = x
