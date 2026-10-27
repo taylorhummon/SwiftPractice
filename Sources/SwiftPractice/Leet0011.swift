@@ -59,6 +59,9 @@ struct Leet0011Idea2 {
     func mostWater(
         _ heights: [Int]
     ) -> Int {
+        guard !heights.isEmpty else {
+            return 0
+        }
         var left = 0
         var right = heights.count - 1
         var largestKnownArea = area(heights, left, right)

@@ -37,7 +37,7 @@ Constraints:
 */
 
 struct Leet0012Idea1 {
-    func intToRoman(
+    func romanFromInt(
         _ number: Int
     ) -> String {
         var number = number

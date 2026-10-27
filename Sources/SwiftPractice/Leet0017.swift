@@ -9,14 +9,6 @@ the number could represent. Return the answer in any order.
 A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1
 does not map to any letters.
 
-Example 1:
-    Input: digits = "23"
-    Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-
-Example 2:
-    Input: digits = "2"
-    Output: ["a","b","c"]
-
 Constraints:
     1 <= digits.length <= 4
     digits[i] is a digit in the range ['2', '9'].
@@ -40,7 +32,7 @@ Idea 1
 Make each (3 or 4) choice of first letter, recurse to generate the rests, and then return the product.
 */
 
-struct Leet00017Idea1 {
+struct Leet0017Idea1 {
     func letterCombinations(
         _ digits: String
     ) -> [String] {
@@ -68,7 +60,7 @@ Idea 2
 Define what it means to take the product of two arrays. Map then reduce.
 */
 
-struct Leet00017Idea2 {
+struct Leet0017Idea2 {
     func letterCombinations(
         _ digits: String
     ) -> [String] {
@@ -85,7 +77,7 @@ Generate the list as a stream.
 If each of the character lists had length three, then we could just use a base 3 representation of integers and incrementing. We can roll some sort of similar increment by hand for (base 3 or occasionally 4).
 */
 
-struct Leet00017Idea3 {
+struct Leet0017Idea3 {
     func letterCombinations(
         _ digits: String
     ) -> [String] {
@@ -99,7 +91,7 @@ struct Leet00017Idea3 {
         _ digits: [Int]
     ) -> [String] {
         guard !digits.isEmpty else {
-            return []
+            return [""]
         }
         let wordIterator = WordIterator(digits: digits)
         var words: [String] = []
