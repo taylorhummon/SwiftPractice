@@ -1,16 +1,6 @@
 import Testing
 @testable import SwiftPractice
 
-/*
-Example 1:
-    Input: digits = "23"
-    Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-
-Example 2:
-    Input: digits = "2"
-    Output: ["a","b","c"]
-*/
-
 @Test func testLeet0017Idea1() {
     let idea = Leet0017Idea1()
     #expect(
