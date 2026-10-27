@@ -16,7 +16,7 @@ to do the following things:
 */
 
 /*
-Idea
+Idea 1
 Keep two indices for numbers, one where we write to and one (ahead) where we read from.
 Skip writing any instances of value.
 */

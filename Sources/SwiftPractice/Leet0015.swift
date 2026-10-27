@@ -14,7 +14,7 @@ Constraints:
 */
 
 /*
-Idea
+Idea 1
 Let's sort the array of numbers we're given.
 
     [-4, -3, -1, 2, 3, 5]

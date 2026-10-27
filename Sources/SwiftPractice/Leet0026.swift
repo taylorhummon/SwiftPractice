@@ -20,7 +20,7 @@ Constraints:
 */
 
 /*
-Idea
+Idea 1
 Use two indices, one where we'll write to and one (ahead) where we'll read from.
 */
 

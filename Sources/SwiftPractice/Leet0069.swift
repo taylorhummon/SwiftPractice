@@ -6,33 +6,21 @@ The returned integer should be non-negative as well.
 
 You must not use any built-in exponent function or operator.
 
-For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
-
-Example 1:
-    Input: x = 4
-    Output: 2
-    Explanation: The square root of 4 is 2, so we return 2.
-
-Example 2:
-    Input: x = 8
-    Output: 2
-    Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
-
 Constraints:
     0 <= x <= 2**31 - 1
 */
 
 /*
-Idea
+Idea 1
 Bisect search.
 */
 
 struct Leet0069Idea1 {
     func sqrt(
         _ n: Int
-    ) -> Int {
+    ) -> Int? {
         guard n >= 0 else {
-            return -1
+            return nil
         }
         if n == 0 || n == 1 {
             return n

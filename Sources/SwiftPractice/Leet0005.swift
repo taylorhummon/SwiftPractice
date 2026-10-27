@@ -11,7 +11,7 @@ Constraints:
 */
 
 /*
-Idea
+Idea 1
 
 Find all palindromes of length 1
 Find all palindromes of length 3

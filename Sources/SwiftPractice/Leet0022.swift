@@ -10,7 +10,7 @@ Constraints:
 */
 
 /*
-Idea
+Idea 1
 Recursion working from right-to-left.
 
 Key fact: When building right-to-left we can never have more open parentheses than closed parentheses.

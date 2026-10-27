@@ -14,7 +14,7 @@ Constraints:
 */
 
 /*
-Idea
+Idea 1
 Reverse the digits so we can work left-to-right.
 */
 

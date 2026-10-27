@@ -22,7 +22,7 @@ Constraints:
 */
 
 /*
-Idea
+Idea 1
 Use bit shifting to avoid having to do repeated addition.
 */
 

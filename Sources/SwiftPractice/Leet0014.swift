@@ -14,7 +14,7 @@ Constraints:
 */
 
 /*
-Idea
+Idea 1
 Find the smallest and largest strings according to lexicographic ordering.
 Step through the two strings until you find a character that's different or reach the end of one of the strings.
 */

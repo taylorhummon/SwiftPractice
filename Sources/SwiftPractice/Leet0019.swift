@@ -13,7 +13,7 @@ Constraints:
 */
 
 /*
-Idea
+Idea 1
 Advance two pointers in parallel, with one traveling n positions behind the first.
 
 5 -> 4 -> 3 -> 2 -> 1 -> nil
