@@ -54,7 +54,6 @@ Inserting is a little expensive if the number of lists is large.
 
 Idea 2
 Repeatedly merge pairs of lists until there's only one left.
-Not yet implemented.
 */
 
 /**
@@ -72,7 +71,7 @@ class Solution {
     func mergeKLists(
         _ lists: [ListNode?]
     ) -> ListNode? {
-        return solution1(lists)
+        return solution2(lists)
     }
 
     func solution1(
@@ -125,7 +124,7 @@ class Solution {
         else if list.val <= sortedLists[sortedLists.count - 1].val {
             sortedLists.append(list)
         }
-        // Use bisect search to find where to insert list into sortedList.
+        // Use bisect search to find where to insert list into sortedLists.
         else {
             let target = list.val
             var left = 0
@@ -146,5 +145,81 @@ class Solution {
                 sortedLists.insert(list, at: right)
             }
         }
+    }
+
+    func solution2(
+        _ lists: [ListNode?]
+    ) -> ListNode? {
+        var lists: [ListNode?] = lists
+        var mergedLists: [ListNode?]
+        guard !lists.isEmpty else {
+            return nil
+        }
+        while lists.count >= 2 {
+            mergedLists = []
+            for i in stride(from: 0, to: lists.count, by: 2) {
+                let listA = lists[i]
+                let listB = i + 1 < lists.count ? lists[i + 1] : nil
+                mergedLists.append(mergeTwo(listA, listB))
+            }
+            lists = mergedLists
+        }
+        return lists[0]
+    }
+
+    private func mergeTwo(
+        _ listA: ListNode?,
+        _ listB: ListNode?
+    ) -> ListNode? {
+        guard let listA = listA else {
+            return listB
+        }
+        guard let listB = listB else {
+            return listA
+        }
+
+        let resultFirst: ListNode
+        var resultLast: ListNode
+        var remainingA: ListNode?
+        var remainingB: ListNode?
+        if listA.val <= listB.val {
+            resultFirst = listA
+            resultLast = listA
+            remainingA = listA.next
+            remainingB = listB
+        }
+        else {
+            resultFirst = listB
+            resultLast = listB
+            remainingA = listA
+            remainingB = listB.next
+        }
+
+        while remainingA != nil || remainingB != nil {
+            guard let nodeA = remainingA else {
+                resultLast.next = remainingB
+                break
+            }
+            guard let nodeB = remainingB else {
+                resultLast.next = remainingA
+                break
+            }
+
+            if nodeA.val <= nodeB.val {
+                remainingA = nodeA.next
+                // Advance resultLast to be nodeA
+                resultLast.next = nodeA
+                resultLast = nodeA
+                resultLast.next = nil
+            }
+            else {
+                remainingB = nodeB.next
+                // Advance resultLast to be nodeB
+                resultLast.next = nodeB
+                resultLast = nodeB
+                resultLast.next = nil
+            }
+        }
+        return resultFirst
     }
 }
