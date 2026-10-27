@@ -4,7 +4,8 @@ public class TreeNode {
     public var left: TreeNode?
     public var right: TreeNode?
 
-    public init() {
+    public init(
+    ) {
         self.val = 0
         self.left = nil
         self.right = nil

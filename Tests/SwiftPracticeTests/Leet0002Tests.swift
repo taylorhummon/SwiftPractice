@@ -5,27 +5,27 @@ import Testing
     let idea = Leet0002Idea1()
     #expect(
         idea.add(
-            ListNode(2, ListNode(4, ListNode(3, nil))),
-            ListNode(5, ListNode(6, ListNode(4, nil))),
+            ListNode.fromArray([2, 4, 3]),
+            ListNode.fromArray([5, 6, 4])
         )
         ==
-        ListNode(7, ListNode(0, ListNode(8, nil)))
+        ListNode.fromArray([7, 0, 8])
     )
     #expect(
         idea.add(
-            ListNode(0, nil),
-            ListNode(0, nil),
+            ListNode.fromArray([0]),
+            ListNode.fromArray([0])
         )
         ==
-        ListNode(0, nil)
+        ListNode.fromArray([0])
     )
     #expect(
         idea.add(
-            ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, nil))))))),
-            ListNode(9, ListNode(9, ListNode(9, ListNode(9, nil)))),
+            ListNode.fromArray([9, 9, 9, 9, 9, 9, 9]),
+            ListNode.fromArray([9, 9, 9, 9])
         )
         ==
-        ListNode(8, ListNode(9, ListNode(9, ListNode(9, ListNode(0, ListNode(0, ListNode(0, ListNode(1, nil))))))))
+        ListNode.fromArray([8, 9, 9, 9, 0, 0, 0, 1])
     )
 }
 
@@ -33,26 +33,26 @@ import Testing
     let idea = Leet0002Idea2()
     #expect(
         idea.add(
-            ListNode(2, ListNode(4, ListNode(3, nil))),
-            ListNode(5, ListNode(6, ListNode(4, nil))),
+            ListNode.fromArray([2, 4, 3]),
+            ListNode.fromArray([5, 6, 4])
         )
         ==
-        ListNode(7, ListNode(0, ListNode(8, nil)))
+        ListNode.fromArray([7, 0, 8])
     )
     #expect(
         idea.add(
-            ListNode(0, nil),
-            ListNode(0, nil),
+            ListNode.fromArray([0]),
+            ListNode.fromArray([0])
         )
         ==
-        ListNode(0, nil)
+        ListNode.fromArray([0])
     )
     #expect(
         idea.add(
-            ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, nil))))))),
-            ListNode(9, ListNode(9, ListNode(9, ListNode(9, nil)))),
+            ListNode.fromArray([9, 9, 9, 9, 9, 9, 9]),
+            ListNode.fromArray([9, 9, 9, 9])
         )
         ==
-        ListNode(8, ListNode(9, ListNode(9, ListNode(9, ListNode(0, ListNode(0, ListNode(0, ListNode(1, nil))))))))
+        ListNode.fromArray([8, 9, 9, 9, 0, 0, 0, 1])
     )
 }
