@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftPractice}",
+            "name": "Debug SwiftPractice",
+            "target": "SwiftPractice",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug SwiftPractice"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftPractice}",
+            "name": "Release SwiftPractice",
+            "target": "SwiftPractice",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release SwiftPractice"
+        }
+    ]
+}

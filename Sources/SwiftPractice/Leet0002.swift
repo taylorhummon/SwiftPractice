@@ -1,0 +1,115 @@
+/*
+See https://leetcode.com/problems/add-two-numbers/
+
+2. Add Two Numbers
+
+You are given two non-empty linked lists representing two non-negative integers. The digits are
+stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and
+return the sum as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Example 1:
+    Input: l1 = [2,4,3], l2 = [5,6,4]
+    Output: [7,0,8]
+    Explanation: 342 + 465 = 807.
+
+Example 2:
+    Input: l1 = [0], l2 = [0]
+    Output: [0]
+
+Example 3:
+    Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+    Output: [8,9,9,9,0,0,0,1]
+
+Constraints:
+    The number of nodes in each linked list is in the range [1, 100].
+    0 <= Node.val <= 9
+    It is guaranteed that the list represents a number that does not have leading zeros.
+*/
+
+/*
+Idea 1
+Use a recursive helper function that takes the two lists and a carry parameter.
+*/
+
+struct Leet0002Idea1 {
+    func add(
+        _ list1: ListNode?,
+        _ list2: ListNode?,
+        carried: Int = 0
+    ) -> ListNode? {
+        let digit1 = list1?.val ?? 0
+        let digit2 = list2?.val ?? 0
+        let total = digit1 + digit2 + carried
+
+        // We'll need a carry if total >= 10
+        let digit = total >= 10 ? total - 10 : total
+        let carry = total >= 10 ? 1 : 0
+
+        // Handle cases when both lists are empty
+        if list1 == nil && list2 == nil {
+            if carry == 1 {
+                return ListNode(digit, ListNode(1, nil))
+            }
+            else if digit > 0 {
+                return ListNode(digit, nil)
+            }
+            else {
+                return nil
+            }
+        }
+
+        // Otherwise, recurse
+        let rest = add(list1?.next, list2?.next, carried: carry)
+        return ListNode(digit, rest)
+    }
+}
+
+/*
+Idea 2
+Work iteratively, building up a result linked list.
+This will require us to keep track of both the start of the result list and the
+end of the result list. We'll need to mutate the end of the result list whenever
+we want to chain on another digit.
+*/
+
+struct Leet0002Idea2 {
+    func add(
+        _ list1: ListNode?,
+        _ list2: ListNode?
+    ) -> ListNode? {
+        guard list1 != nil || list2 != nil else {
+            return ListNode(0, nil)
+        }
+        var list1 = list1
+        var list2 = list2
+        var carry: Int = 0
+
+        // Using this resultHolder helps us DRY the loop.
+        // We'll modify resultHolder.next using lastResultNode.
+        let resultHolder = ListNode(0, nil)
+        var lastListNodeOfResult = resultHolder
+        while list1 != nil || list2 != nil || carry != 0 {
+            let digit1 = list1?.val ?? 0
+            let digit2 = list2?.val ?? 0
+            let total = digit1 + digit2 + carry
+            let digit = total >= 10 ? total - 10 : total
+            carry = total >= 10 ? 1 : 0
+
+            // Make a new list node and stick the new list node on to the end of the result
+            let listNode = ListNode(digit, nil)
+            lastListNodeOfResult.next = listNode
+
+            // Advance the lastListNodeOfResult
+            lastListNodeOfResult = listNode
+
+            // Advance the lists
+            list1 = list1?.next
+            list2 = list2?.next
+        }
+
+        // Return the result
+        return resultHolder.next
+    }
+}
