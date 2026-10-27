@@ -26,12 +26,6 @@ Look at each pair of indices and compute the area of the rectangle.
 Keep track of the max amount of area found.
 */
 
-/*
-Idea 2
-Use two indices, one which starts at the left and one that starts at the right.
-Meet in the middle.
-*/
-
 struct Leet0011Idea1 {
     func mostWater(
         _ heights: [Int]
@@ -54,6 +48,12 @@ struct Leet0011Idea1 {
         return (right - left) * min(heights[left], heights[right])
     }
 }
+
+/*
+Idea 2
+Use two indices, one which starts at the left and one that starts at the right.
+Meet in the middle.
+*/
 
 struct Leet0011Idea2 {
     func mostWater(
